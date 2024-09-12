@@ -40,6 +40,12 @@ public:
         return m_arr[index];
     }
 
+    const T& operator[](size_t index) const {
+        if (index < 0)
+            throw std::invalid_argument("value must be positive");
+        return m_arr[index];
+    }
+
     
     bool operator==(const MyArray<T, _size>& other) const {
         for (int i = 0; i <= _size; i++) {
@@ -82,7 +88,7 @@ public:
 
 int main() {
     std::cout << "Hello World!\n";
-    MyArray<int, 3> a {1, 3, 3};
+    MyArray<int, 3> a {1, 2, 3};
     MyArray<int, 3> b {1, 2, 3};
     std::cout << "a == b: " << (a == b) << std::endl;
 }
