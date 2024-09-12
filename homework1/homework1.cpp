@@ -48,10 +48,24 @@ public:
 
     
     bool operator==(const MyArray<T, _size>& other) const {
-        for (int i = 0; i <= _size; i++) {
+        for (int i = 0; i < _size; i++) {
             if (m_arr[i] != other.m_arr[i]) return false;
         }
         return true;
+    }
+    
+    bool operator<(const MyArray<T, _size>&other) const {
+        for (int i = 0; i < _size; i++) {
+            if (m_arr[i] < other.m_arr[i]) return true;
+        }
+        return false;
+    }
+
+    bool operator>(const MyArray<T, _size>&other) const {
+        for (int i = 0; i < _size; i++) {
+            if (m_arr[i] > other.m_arr[i]) return true;
+        }
+        return false;
     }
 
     T* data() {
@@ -77,7 +91,7 @@ public:
     }
 
     void swap(MyArray<T, _size>& other) {
-        for (int i = 0; i <= _size; i++) {
+        for (int i = 0; i < _size; i++) {
             T tmp = other.m_arr[i];
             other.m_arr[i] = m_arr[i];
             m_arr[i] = tmp;
@@ -88,7 +102,14 @@ public:
 
 int main() {
     std::cout << "Hello World!\n";
-    MyArray<int, 3> a {1, 2, 3};
+    MyArray<int, 3> a {1, 4, 3};
     MyArray<int, 3> b {1, 2, 3};
+    MyArray<int, 3> c {1, 2, 3};
     std::cout << "a == b: " << (a == b) << std::endl;
+    a.swap(c);
+    std::cout << "a == b: " << (a == b) << std::endl;
+
+    std::array<int, 3> a1 {1, 3, 3};
+    std::array<int, 3> a2 {1, 2, 5};
+    std::cout << "a < b: " << (a1 < a2) << std::endl;
 }
