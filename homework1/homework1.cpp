@@ -40,10 +40,10 @@ public:
         return m_arr[index];
     }
 
-    template <Numeric T, size_t _size>
-    bool operator==(const MyArray<T, _size>& other) {
+    
+    bool operator==(const MyArray<T, _size>& other) const {
         for (int i = 0; i <= _size; i++) {
-            if (m_arr[i] != other[i]) return false;
+            if (m_arr[i] != other.m_arr[i]) return false;
         }
         return true;
     }
@@ -82,7 +82,7 @@ public:
 
 int main() {
     std::cout << "Hello World!\n";
-    MyArray<int, 3> a {1, 2, 3};
+    MyArray<int, 3> a {1, 3, 3};
     MyArray<int, 3> b {1, 2, 3};
     std::cout << "a == b: " << (a == b) << std::endl;
 }
