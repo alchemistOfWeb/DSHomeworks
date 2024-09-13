@@ -2,11 +2,7 @@
 #include <stdexcept>
 #include <initializer_list> 
 
-#if __cplusplus >= 202002L
-    #include "MyArray.h"
-#else
-    import MyArray;
-#endif
+#include "MyArray.h"
 
 
 int main() {
