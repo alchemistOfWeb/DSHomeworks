@@ -1,14 +1,9 @@
 ﻿#include <iostream>
 #include <stdexcept>
 #include <initializer_list> 
-#include <array>
 
 
-template <typename T>
-concept Numeric = std::is_integral_v<T>;
-
-
-template <Numeric T, size_t _size>
+template <class T, size_t _size>
 class MyArray {
 private:
     T m_arr[_size];
@@ -52,6 +47,13 @@ public:
             if (m_arr[i] != other.m_arr[i]) return false;
         }
         return true;
+    }
+
+    bool operator!=(const MyArray<T, _size>& other) const {
+        for (int i = 0; i < _size; i++) {
+            if (m_arr[i] != other.m_arr[i]) return true;
+        }
+        return false;
     }
     
     bool operator<(const MyArray<T, _size>&other) const {
