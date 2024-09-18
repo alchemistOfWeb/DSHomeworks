@@ -1,6 +1,4 @@
 ﻿#include <iostream>
-#include <stdexcept>
-#include <initializer_list> 
 
 #include "MyArray.h"
 

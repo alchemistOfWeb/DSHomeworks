@@ -29,8 +29,6 @@ public:
     }
 
     T& operator[](size_t index) {
-        if (index < 0)
-            throw std::invalid_argument("value must be positive");
         return m_arr[index];
     }
 
