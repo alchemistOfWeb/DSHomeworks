@@ -5,8 +5,6 @@
 
 template <class T, size_t _size>
 class MyArray {
-private:
-    T m_arr[_size];
 public:
     MyArray() = default;
 
@@ -111,5 +109,7 @@ public:
         }
     }
 
+    private:
+        T m_arr[_size];
 };
 
